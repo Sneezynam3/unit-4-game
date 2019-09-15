@@ -17,7 +17,7 @@ p {
     color: green;
 }
 
-.crystalBtn, .btnArea, .crystalBtn, .img, .btnArea {
+.crystalBtn, .btnArea, img {
     height: 200px;
     width: 200px;
     float: left;

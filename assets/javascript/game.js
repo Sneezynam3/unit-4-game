@@ -1,4 +1,3 @@
-var targetNumber = 19;
 var wins = 0;
 var losses = 0
 var totalScore = 0;
@@ -13,37 +12,63 @@ $(".targetScore").html(randomNumber);
 
 
 function populate_btns(arr) {
+    $("#btnArea").empty()
     for (i = 1; i <= 4; i++) {
         var btn = Math.ceil(Math.random() * 12);
         arr.push(btn);
         console.log(btn);
         var newBtn = $("<button>").attr("class", "crystalBtn");
         newImg = $("<img>").attr("src", "./assets/images/img" + i + ".jpg");
-        newBtn.attr("id", "btn" + "i");
+        newBtn.attr("id", "btn" + i);
         newBtn.append(newImg);
         $("#btnArea").append(newBtn);
     }
 };
 
-populate_btns(buttons);
-$("#btnArea").on("click", ".crystalBtn", function () { })
+// populate_btns(buttons);
+$("#btnArea").on("click", ".crystalBtn", function () {
+    var userClick = $(this).attr("id")
+    if (userClick === "btn1") {
+        totalScore += buttons[0];
+        roundCheck();
+    } else if (userClick === "btn2") {
+        totalScore += buttons [1];
+        roundCheck();
+    } else if (userClick === "btn3") {
+        totalScore += buttons [2];
+        roundCheck();
+    } else if (userClick === "btn4") {
+        totalScore += buttons [3]
+        roundCheck();
+    };
+    console.log(totalScore);
+    $(".totalScore").html(totalScore);
+});
 
-.on("click"), function addScore() {
-
-}
-
+function roundCheck() {
+    if (totalScore === randomNumber) {
+        wins++;
+        reset();
+    } else if (totalScore > randomNumber) {
+        losses++;
+        reset();
+    };
+};
 // $(".targetScore").html(randomNumber);
 // $(".totalScore").html(addScore);
 
-$(".crystal-image").on("click"), function() {};
 
-if (totalScore === targetNumber) {
-    wins++;
-} else if (totalScore > targetNumber) {
-    losses++;
-};
+
 function reset() {
-    var buttons = [];
-    var targetNumber;
-    var totalScore = 0;
+    buttons = [];
+    randomNumber = (Math.round(Math.random() * 101) + 19);
+    totalScore = 0;
+    populate_btns(buttons);
+    console.log(randomNumber);
+    $("#Wins").text(wins)
+    $("#Losses").text(losses)
+    $(".targetScore").html(randomNumber);
+    $(".totalScore").html(totalScore);
 }
+reset();
+
