@@ -5,6 +5,8 @@ var totalScore = 0;
 var buttons = [];
 
 
+// set button backgrounds to images
+
 var randomNumber = (Math.round(Math.random() * 101) + 19);
 console.log(randomNumber)
 $(".targetScore").html(randomNumber);
@@ -23,37 +25,25 @@ function populate_btns(arr) {
     }
 };
 
-
 populate_btns(buttons);
 $("#btnArea").on("click", ".crystalBtn", function () { })
 
-
-.on("click", function addScore() {
-    
+.on("click"), function addScore() {
 
 }
 
-$(".targetScore").html(randomNumber);
-$(".totalScore").html(addScore);
+// $(".targetScore").html(randomNumber);
+// $(".totalScore").html(addScore);
 
-$(".crystal-image").on("click", function() {
-
-
-
-
-
+$(".crystal-image").on("click"), function() {};
 
 if (totalScore === targetNumber) {
     wins++;
 } else if (totalScore > targetNumber) {
     losses++;
 };
-
-
 function reset() {
     var buttons = [];
     var targetNumber;
     var totalScore = 0;
-};
-
-
+}
